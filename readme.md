@@ -1,6 +1,6 @@
 # Resource Graph Examples
 
-## Security
+## NSG open ports
 Find all Network Security Groups (NSG) which has inbound rules for RDP (3389) and SSH (22)
 
 ```kql
@@ -14,4 +14,12 @@ resources
     rule    = rules.properties.destinationPortRange, 
     nsgname = name, 
     group   = resourceGroup
+```
+
+### Output
+```
+name access rule nsgname       group    
+---- ------ ---- -------       -----    
+RDP  Allow  3389 amdemo-vm-nsg az-900-vm
+SSH  Allow  22   amdemo-vm-nsg az-900-vm
 ```
